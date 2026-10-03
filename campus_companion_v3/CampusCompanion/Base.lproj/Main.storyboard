@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav-controller">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="nav-scene">
+            <objects>
+                <navigationController id="nav-controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nav-bar">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="welcome-controller" kind="relationship" relationship="rootViewController" id="root-segue"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1080" y="20"/>
+        </scene>
+        <scene sceneID="welcome-scene">
+            <objects>
+                <viewController id="welcome-controller" customClass="ViewController" customModule="CampusCompanion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="welcome-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="welcome-stack">
+                                <rect key="frame" x="32" y="150" width="329" height="345"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Welcome, Student!" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="welcome-label">
+                                        <rect key="frame" x="0.0" y="0.0" width="329" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="name-field">
+                                        <rect key="frame" x="0.0" y="45" width="329" height="44"/>
+                                        <constraints><constraint firstAttribute="height" constant="44" id="name-height"/></constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="name"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="notify-row">
+                                        <rect key="frame" x="0.0" y="105" width="329" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Notifications" translatesAutoresizingMaskIntoConstraints="NO" id="notify-label">
+                                                <rect key="frame" x="0.0" y="5" width="264" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="notify-switch">
+                                                <rect key="frame" x="264" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="role-control">
+                                        <rect key="frame" x="0.0" y="152" width="329" height="32"/>
+                                        <segments><segment title="Student"/><segment title="Faculty"/></segments>
+                                    </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="explore-button">
+                                        <rect key="frame" x="0.0" y="200" width="329" height="50"/>
+                                        <color key="backgroundColor" red="0.6196078431" green="0.8901960784" blue="0.9098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints><constraint firstAttribute="height" constant="50" id="explore-height"/></constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="Explore Campus"><color key="titleColor" red="0.07058823529" green="0.1803921569" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/></state>
+                                        <connections>
+                                            <action selector="exploreButtonTapped:" destination="welcome-controller" eventType="touchUpInside" id="explore-action"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" translatesAutoresizingMaskIntoConstraints="NO" id="announcements-button">
+                                        <rect key="frame" x="0.0" y="266" width="329" height="50"/>
+                                        <color key="backgroundColor" red="0.9921568627" green="0.6196078431" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints><constraint firstAttribute="height" constant="50" id="announcements-height"/></constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="bold" pointSize="17"/>
+                                        <state key="normal" title="Campus Announcements"><color key="titleColor" red="0.07058823529" green="0.1803921569" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/></state>
+                                        <connections>
+                                            <segue destination="announcements-controller" kind="show" id="show-announcements-segue"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="welcome-safe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="welcome-stack" firstAttribute="top" secondItem="welcome-safe" secondAttribute="top" constant="47" id="welcome-stack-top"/>
+                            <constraint firstItem="welcome-stack" firstAttribute="leading" secondItem="welcome-safe" secondAttribute="leading" constant="32" id="welcome-stack-leading"/>
+                            <constraint firstItem="welcome-safe" firstAttribute="trailing" secondItem="welcome-stack" secondAttribute="trailing" constant="32" id="welcome-stack-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Campus Companion" id="welcome-nav-item"/>
+                    <connections>
+                        <outlet property="nameTextField" destination="name-field" id="outlet-name"/>
+                        <outlet property="notifySwitch" destination="notify-switch" id="outlet-notify"/>
+                        <outlet property="roleSegmentedControl" destination="role-control" id="outlet-role"/>
+                        <segue destination="detail-controller" kind="show" identifier="ShowDetailSegue" id="show-detail-segue"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="welcome-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-180" y="20"/>
+        </scene>
+        <scene sceneID="announcements-scene">
+            <objects>
+                <tableViewController id="announcements-controller" customClass="AnnouncementsViewController" customModule="CampusCompanion" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLine" rowHeight="76" sectionHeaderHeight="28" sectionFooterHeight="28" id="announcements-table">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AnnouncementCell" rowHeight="76" customClass="AnnouncementCell" customModule="CampusCompanion" customModuleProvider="target" id="announcement-cell">
+                                <rect key="frame" x="0.0" y="50" width="393" height="76"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="announcement-cell" id="announcement-content">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="76"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="announcement-icon">
+                                            <rect key="frame" x="16" y="22" width="32" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="32" id="icon-width"/>
+                                                <constraint firstAttribute="height" constant="32" id="icon-height"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Enrollment Period Extended" textAlignment="natural" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="announcement-title">
+                                            <rect key="frame" x="64" y="16" width="313" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <color key="textColor" systemColor="labelColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Registrar • August 3, 2026 • Normal" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.82" adjustsFontSizeToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="announcement-date">
+                                            <rect key="frame" x="64" y="43" width="313" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="announcement-icon" firstAttribute="leading" secondItem="announcement-content" secondAttribute="leading" constant="16" id="icon-leading"/>
+                                        <constraint firstItem="announcement-icon" firstAttribute="centerY" secondItem="announcement-content" secondAttribute="centerY" id="icon-center-y"/>
+                                        <constraint firstItem="announcement-title" firstAttribute="leading" secondItem="announcement-icon" secondAttribute="trailing" constant="16" id="title-leading"/>
+                                        <constraint firstItem="announcement-title" firstAttribute="top" secondItem="announcement-content" secondAttribute="top" constant="16" id="title-top"/>
+                                        <constraint firstItem="announcement-content" firstAttribute="trailing" secondItem="announcement-title" secondAttribute="trailing" constant="16" id="title-trailing"/>
+                                        <constraint firstItem="announcement-date" firstAttribute="leading" secondItem="announcement-title" secondAttribute="leading" id="date-leading"/>
+                                        <constraint firstItem="announcement-date" firstAttribute="top" secondItem="announcement-title" secondAttribute="bottom" constant="5" id="date-top"/>
+                                        <constraint firstItem="announcement-content" firstAttribute="trailing" secondItem="announcement-date" secondAttribute="trailing" constant="16" id="date-trailing"/>
+                                        <constraint firstItem="announcement-content" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="announcement-date" secondAttribute="bottom" constant="12" id="date-bottom"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryIconImageView" destination="announcement-icon" id="cell-icon-outlet"/>
+                                    <outlet property="dateLabel" destination="announcement-date" id="cell-date-outlet"/>
+                                    <outlet property="titleLabel" destination="announcement-title" id="cell-title-outlet"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="announcements-controller" id="table-data-source"/>
+                            <outlet property="delegate" destination="announcements-controller" id="table-delegate"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Campus Announcements" id="announcements-nav-item"/>
+                    <connections>
+                        <segue destination="detail-controller" kind="show" identifier="ShowAnnouncementDetailSegue" id="announcement-detail-segue"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="announcements-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="-390"/>
+        </scene>
+        <scene sceneID="detail-scene">
+            <objects>
+                <viewController id="detail-controller" customClass="DetailViewController" customModule="CampusCompanion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="detail-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Enrollment Period Extended" textAlignment="center" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="detail-heading">
+                                <rect key="frame" x="32" y="155" width="329" height="58"/>
+                                <fontDescription key="fontDescription" type="system" weight="bold" pointSize="24"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Category:     Registrar&#10;&#10;Date:             August 3, 2026&#10;&#10;Priority:        Normal&#10;&#10;Posted By:   Registrar" textAlignment="natural" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="message-label">
+                                <rect key="frame" x="48" y="253" width="297" height="180"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="detail-safe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="detail-heading" firstAttribute="top" secondItem="detail-safe" secondAttribute="top" constant="52" id="detail-heading-top"/>
+                            <constraint firstItem="detail-heading" firstAttribute="leading" secondItem="detail-safe" secondAttribute="leading" constant="32" id="detail-heading-leading"/>
+                            <constraint firstItem="detail-safe" firstAttribute="trailing" secondItem="detail-heading" secondAttribute="trailing" constant="32" id="detail-heading-trailing"/>
+                            <constraint firstItem="message-label" firstAttribute="top" secondItem="detail-heading" secondAttribute="bottom" constant="34" id="detail-message-top"/>
+                            <constraint firstItem="message-label" firstAttribute="leading" secondItem="detail-safe" secondAttribute="leading" constant="48" id="detail-message-leading"/>
+                            <constraint firstItem="detail-safe" firstAttribute="trailing" secondItem="message-label" secondAttribute="trailing" constant="48" id="detail-message-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="detail-nav-item"/>
+                    <connections>
+                        <outlet property="headingLabel" destination="detail-heading" id="outlet-heading"/>
+                        <outlet property="messageLabel" destination="message-label" id="outlet-message"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="detail-first" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="480"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor"><color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/></systemColor>
+        <systemColor name="secondaryLabelColor"><color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.6" colorSpace="custom" customColorSpace="sRGB"/></systemColor>
+        <systemColor name="systemBackgroundColor"><color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/></systemColor>
+    </resources>
+</document>
